@@ -23,15 +23,15 @@
  */
 class POPFileStrip : public POPBase {
 public:
-   POPFileStrip();  //POPFileStrip constructor
-   ~POPFileStrip(); //POPFileStrip destructor
+  POPFileStrip();  //POPFileStrip constructor
+  ~POPFileStrip(); //POPFileStrip destructor
 
-   //Inherited method to serialize the object
-   virtual void Serialize(POPBuffer &buf, bool pack); 
+  //Inherited method to serialize the object
+  virtual void Serialize(POPBuffer &buf, bool pack); 
 
 private: 
-	std::string path;
-	std::string name;
+  std::string path;
+  std::string name;
 };
 
 #endif /* _POPFILESTRIP_H */
