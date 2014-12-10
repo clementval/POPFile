@@ -18,38 +18,38 @@
 
 parclass POPFileManager : virtual public paroc_service_base {
 public:
-   classuid(50);   
+  classuid(50);   
 
-   //POPFileManager constructor
-   POPFileManager(const POPString &challenge, bool deamon, POPString host) @{ od.runLocal(true); od.service(true); od.url(host); };
+  //POPFileManager constructor
+  POPFileManager(const POPString &challenge, bool deamon, POPString host) @{ od.runLocal(true); od.service(true); od.url(host); };
    
-   //POPFileManager destrcutor   
-   ~POPFileManager();
+  //POPFileManager destrcutor   
+  ~POPFileManager();
    
-   //Create a new strip on this node
-   sync seq bool createStrip(POPString abslotuePath);
+  //Create a new strip on this node
+  sync seq bool createStrip(POPString abslotuePath);
    
-   //Find resource to create strips
-   sync conc int findResourcesForStrip(int nb, [in, out, size=nb] paroc_accesspoint* candidate, [in, out, size=nb] POPString* stripNames, POPString stripPrefix, bool local);
+  //Find resource to create strips
+  sync conc int findResourcesForStrip(int nb, [in, out, size=nb] paroc_accesspoint* candidate, [in, out, size=nb] POPString* stripNames, POPString stripPrefix, bool local);
    
-	//Write to strip
-	async conc void writeToStrip(POPString stripName, POPString data);
+  //Write to strip
+  async conc void writeToStrip(POPString stripName, POPString data);
 	
-	//Write to a remote strip
-	async conc void writeToRemoteStrip(POPString stringName, POPString data, paroc_accesspoint ap);
+  //Write to a remote strip
+  async conc void writeToRemoteStrip(POPString stringName, POPString data, paroc_accesspoint ap);
 
-	// Read a block of data from the strip
-	sync conc POPString readFromStrip(POPString stripName, long start, long offset);
+  // Read a block of data from the strip
+  sync conc POPString readFromStrip(POPString stripName, long start, long offset);
    
-   //Save the accesspoint of the POPSearchNode
-   sync seq void setPSNAccessPoint(paroc_accesspoint ap);
+  //Save the accesspoint of the POPSearchNode
+  sync seq void setPSNAccessPoint(paroc_accesspoint ap);
    
-   //Get neighbors to create strips on them 
-   sync seq void getNeighborsFromPSN();
+  //Get neighbors to create strips on them 
+  sync seq void getNeighborsFromPSN();
    
 private:
-	paroc_accesspoint psn_ap;	// Saved access point to the local PSN for resource discovery
-	std::list<paroc_accesspoint> pfm_neighbors;	// list of direct neigbors
+  paroc_accesspoint psn_ap;	// Saved access point to the local PSN for resource discovery
+  std::list<paroc_accesspoint> pfm_neighbors;	// list of direct neigbors
 	
 };
 
