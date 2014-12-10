@@ -34,10 +34,10 @@ POPFileStrip::~POPFileStrip(){}
  * @param If true=masrhalling, if false=unmarshalling
  */
 void POPFileStrip::Serialize(POPBuffer &buf, bool pack){
-   if(pack){
+  if(pack){
 
-   } else {
+  } else {
     
-   }
+  }
 }
 
